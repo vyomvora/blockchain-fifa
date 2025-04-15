@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FIFA Cards Web3 App</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-trophy"></i> FIFA Cards Web3 App</h1>
+  </header>
+
+  <nav class="navbar hidden" id="navbar">
+    <button class="nav-button" data-target="homePage"></i> Home</button>
+    <button class="nav-button" data-target="spinWheelPage"></i> Spin Wheel</button>
+    <button class="nav-button" data-target="marketplacePage"></i> Marketplace</button>
+    <button class="nav-button" data-target="collectionPage"></i> My Collection</button>
+  </nav>
+
+  <main>
+    <!-- Home Page -->
+    <div class="page active" id="homePage">
+      <div class="section" id="authSection">
+        <h2></i> Connect Your Wallet</h2>
+        <button class="button" id="connectButton"></i> Connect MetaMask</button>
+        <div id="accountDisplay"></div>
+        <div id="balanceDisplay"></div>
+      </div>
+    </div>
+    
+    <!-- Spin Wheel Page -->
+    <div class="page hidden" id="spinWheelPage">
+      <div class="section">
+        <h2></i> Spin the Wheel</h2>
+        <p>Spin the wheel for 0.0001 SepholiaETH and get a chance to win a player card!</p>
+        
+        <div class="wheel-container">
+          <div class="wheel-arrow"></div>
+          <div id="spinWheel">
+          </div>
+          <div class="wheel-center"></div>
+        </div>
+        
+        <button class="button" id="spinButton"></i> Spin the Wheel</button>
+        <div id="spinResult"></div>
+        
+        <div id="newCardContainer" class="hidden">
+          <h3></i> You Won!</i></h3>
+          
+          <div class="player-result-container">
+            <div id="newCard" class="card"></div>
+            
+            <div class="player-details">
+              <h3>Player Details</h3>
+              <div class="player-detail-grid" id="playerDetails">
+              </div>
+            </div>
+          </div>
+          
+          <div class="result-actions">
+            <button class="action-button" id="keepCardBtn"></i> Keep Card</button>
+            <button class="action-button" id="sellCardBtn"></i> Sell Card</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Marketplace Page -->
+    <div class="page hidden" id="marketplacePage">
+      <div class="section">
+        <h2></i> Marketplace</h2>
+        <p>Browse and purchase player cards from other users.</p>
+        <div id="marketplace">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Collection Page -->
+    <div class="page hidden" id="collectionPage">
+      <div class="section">
+        <h2></i> My Collection</h2>
+        <div id="collectionCards">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sell Card Model -->
+    <div id="sellCardModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h3><i class="fas fa-tag"></i> Sell Your Card</h3>
+        <div id="sellCardPreview"></div>
+        <div class="form-group">
+          <label for="cardPrice">Set Price (1 coin = 0.0001 SepholiaETH):</label>
+          <input type="number" id="cardPrice" min="1" value="1">
+        </div>
+        <button class="button" id="confirmSellBtn">List for Sale</button>
+      </div>
+    </div>
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
